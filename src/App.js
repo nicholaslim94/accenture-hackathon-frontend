@@ -1,27 +1,12 @@
-
-import './App.css';
-import React from 'react';
-import Landing from './components/landingPage/Landing';
-import Carousel from './components/carousel/Carousel';
-
-
+import "./App.css";
+import React from "react";
+import Landing from "./components/landingPage/Landing";
 
 function App() {
   return (
-    
     <div className="App">
-       <div className="App-header">
-
-
-  
-    <Landing/>
-    <Carousel/>
-  </div>
-  </div>
-
-  
-   
-  
+      <Landing />
+    </div>
   );
 }
 

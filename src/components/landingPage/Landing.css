@@ -1,12 +1,8 @@
-.Container{
-
-text-align: center;
-justify-content:center;
-
-
+.Container {
+  text-align: center;
+  justify-content: center;
 }
-h1{
-
-   font-style: oblique;
-   color: lightgreen;
+h1 {
+  font-style: oblique;
+  color: lightgreen;
 }
