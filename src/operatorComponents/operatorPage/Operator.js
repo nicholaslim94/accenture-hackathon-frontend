@@ -1,6 +1,6 @@
 function Operator() {
     return (<div>
-
+        
     </div>)
 }
 

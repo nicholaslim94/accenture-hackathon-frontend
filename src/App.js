@@ -17,10 +17,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Operator />
+            <Landing />
           </Route>
           <Route exact path="/operator">
-            <Landing />
+            <Operator />
           </Route>
           <Route exact path="/whyVaccinate">
             <WhyVaccinate />
