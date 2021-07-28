@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 .cardreward {
   width: 18rem;
   height: 30rem;
   padding: 10px;
   margin: 10px;
 }
+=======
+.cardreward{
+
+    width:18rem;
+    height:30rem;
+    padding:10px;
+    margin:10px;
+    background-color:blue;
+    border-radius:5px;
+}
+>>>>>>> af257d442c4dbbd9d7f94e6142026d9f94b91b89
