@@ -14,6 +14,7 @@ function Register() {
   const [Result, setResult] = useState("");
   const [username, setUsername] = useState("");
   
+  let history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -24,22 +25,28 @@ function Register() {
     console.log(LastName);
 
 
-
-    //console.log(JSON.stringify(requestbody));
-    axios
-      .post("http://localhost:8080/register", {
-        username: username,
-        password: password,
-        FirstName:FirstName,
-        LastName: LastName
-
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        setResult(JSON.stringify(res.data));
-      });
-   
+    var axios = require('axios');
+    var data = JSON.stringify({"username":"username","password":"password","firstName":"firstName","lastName":"lastName","email":"email"});
+    
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8080/register',
+      headers: { 
+        'Content-Type': 'application/json', 
+       
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      history.push("/");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
   }
   return (
     <div class="Container registerform">
