@@ -5,29 +5,41 @@ import { Button } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import "./Register.css";
+import { useHistory } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [result, setResult] = useState("");
+  const [Result, setResult] = useState("");
+  const [username, setUsername] = useState("");
+  
 
   function handleSubmit(event) {
     event.preventDefault();
     console.log(email);
     console.log(password);
+    console.log(username);
+    console.log(FirstName);
+    console.log(LastName);
+
+
+
     //console.log(JSON.stringify(requestbody));
     axios
-      .post("https://reqres.in/api/login", {
-        email: email,
+      .post("http://localhost:8080/register", {
+        username: username,
         password: password,
+        FirstName:FirstName,
+        LastName: LastName
+
       })
       .then((res) => {
         console.log(res);
         console.log(res.data);
         setResult(JSON.stringify(res.data));
       });
-    //axios.get('https://reqres.in/api/users').then(result => console.log(result))
+   
   }
   return (
     <div class="Container registerform">
@@ -84,6 +96,31 @@ function Register() {
           </Form.Group>
         </Row>
 
+        <Row className="mb-3">
+
+        <Form.Group as={Col} controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              required={true}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="Field"
+            />
+        </Form.Group>
+        </Row>
+
+
+        <Button
+          variant="secondary"
+          type="button"
+          className="Btnstyle"
+          onClick={useHistory().goBack}
+        >
+          Back
+
+          </Button>
         <Button variant="primary" type="submit" className="Btnstyle">
           Register
         </Button>
