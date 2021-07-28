@@ -1,8 +1,7 @@
-.Container {
-  text-align: center;
-  justify-content: center;
+.content {
+  margin: 100px auto;
 }
+
 h1 {
   font-style: oblique;
-  color: lightgreen;
 }

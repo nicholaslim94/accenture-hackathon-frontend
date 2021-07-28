@@ -1,0 +1,27 @@
+.loginform {
+  margin: auto;
+  width: 1200px;
+  height: 400px;
+  padding: 50px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: lightslategray;
+
+  text-align: center;
+  width: 1000px;
+}
+
+.box {
+  width: 200px;
+  height: 150px;
+}
+
+.Field {
+  width: 300px;
+  padding: 100px;
+}
+
+.Btnstyle {
+  width: 300px;
+  text-align: center;
+}

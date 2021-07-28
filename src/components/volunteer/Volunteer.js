@@ -1,16 +1,16 @@
-import "./Profile.css";
+import "./Volunteer.css";
 import MainNavbar from "../navbar/MainNavbar";
 import Container from "react-bootstrap/Container";
 
-function Profile() {
+function Volunteer() {
   return (
     <div>
       <MainNavbar />
-      <Container id="profileContent">
-        <h1>hello</h1>
+      <Container className="volunteer-content">
+        <h1>Volunteer</h1>
       </Container>
     </div>
   );
 }
 
-export default Profile;
+export default Volunteer;

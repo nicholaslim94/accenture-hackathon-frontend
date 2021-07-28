@@ -1,14 +1,17 @@
 import React from "react";
 import "./Landing.css";
 import Carousel from "../carousel/Carousel";
-import Mainnavbar from "../navbar/MainNavbar";
+import MainNavbar from "../navbar/MainNavbar";
+import Container from "react-bootstrap/Container";
 
 function Landing() {
   return (
     <div>
-      <h1> Vaccinelah </h1>
-      <Mainnavbar />
-      <Carousel />
+      <MainNavbar />
+      <Container className="content">
+        <h1> Vaccinelah </h1>
+        <Carousel />
+      </Container>
     </div>
   );
 }
