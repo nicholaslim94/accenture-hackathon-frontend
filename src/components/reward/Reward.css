@@ -1,9 +1,6 @@
-.cardreward{
-
-    width:18rem;
-    height:30rem;
-    padding:10px;
-    margin:10px;
-    background-color: lightcoral;
-    border-radius:5px;
+.cardreward {
+  width: 18rem;
+  height: 30rem;
+  padding: 10px;
+  margin: 10px;
 }

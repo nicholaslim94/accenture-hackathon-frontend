@@ -5,7 +5,6 @@ import MainNavbar from "../navbar/MainNavbar";
 import Container from "react-bootstrap/Container";
 import Reward from "../reward/Reward";
 
-
 function Landing() {
   return (
     <div>
@@ -14,8 +13,6 @@ function Landing() {
         <h1> Vaccinelah </h1>
         <Carousel />
       </Container>
-      <Reward/>
-     
     </div>
   );
 }

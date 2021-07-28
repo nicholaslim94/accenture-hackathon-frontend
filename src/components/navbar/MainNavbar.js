@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../images/logo.png";
 import Nav from "react-bootstrap/Nav";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import profileImg from "../images/profileIcon.png";
+import { Button } from "react-bootstrap";
 
 function MainNavbar() {
+  // const authContext = useContext(AuthContext);
+  let history = useHistory();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token") != null) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
+
+  // function isAuthenticated() {
+  //   if (localStorage.getItem("token") != null) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
+  function handleLogout(e) {
+    e.preventDefault();
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    // authContext.authenticated = false;
+    history.push("/");
+    window.location.reload();
+  }
+
   return (
     <Router>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
@@ -27,7 +66,22 @@ function MainNavbar() {
               <Nav.Link href="./rewards">Rewards</Nav.Link>
               <Nav.Link href="./volunteer">Volunteer</Nav.Link>
             </Nav>
-            <Nav hidden={false}>
+            <Nav hidden={!isAuthenticated}>
+              <Nav.Link href="./profile">
+                <img
+                  alt=""
+                  src={profileImg}
+                  width="40"
+                  height="40"
+                  className="d-inline-block"
+                />{" "}
+                {localStorage.getItem("user")}
+              </Nav.Link>
+              <Button variant="secondary" onClick={handleLogout}>
+                Log out
+              </Button>
+            </Nav>
+            <Nav hidden={isAuthenticated}>
               <Nav.Link href="./register">Register</Nav.Link>
               <Nav.Link href="./login">Login</Nav.Link>
             </Nav>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -6,11 +6,14 @@ import "./Login.css";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+// import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [result, setResult] = useState("");
+  // const authContext = useContext(AuthContext);
+  let history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,7 +26,7 @@ function Login() {
 
     var config = {
       method: "post",
-      url: "localhost:8080/login",
+      url: "http://localhost:8080/login",
       headers: {
         "Content-Type": "application/json",
       },
@@ -36,7 +39,14 @@ function Login() {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        console.log("logged in! ");
+        console.log("logged in! Token: ", response.data.token);
+        if (typeof response.data.token === "string") {
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", username);
+          // authContext.authenticated = true;
+          // console.log(authContext.authenticated);
+          history.push("/");
+        }
       })
       .catch(function (error) {
         console.log(error);
