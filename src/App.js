@@ -1,12 +1,15 @@
-import "./App.css";
 import React from "react";
-import Landing from "./components/landingPage/Landing";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Landing from "./components/landingPage/Landing";
 import Rewards from "./components/rewardsPage/Rewards";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import WhyVaccinate from "./components/whyVaccinatePage/WhyVaccinate";
 import Volunteer from "./components/volunteer/Volunteer";
+import Operator from "./operatorComponents/operatorPage/Operator";
+
+import "./App.css";
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <Operator />
+          </Route>
+          <Route exact path="/operator">
             <Landing />
           </Route>
           <Route exact path="/whyVaccinate">
