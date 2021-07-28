@@ -5,68 +5,55 @@ import { Button } from "react-bootstrap";
 import "./Login.css";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [FirstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
   const [result, setResult] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
-    //console.log(JSON.stringify(requestbody));
-    axios
-      .post("https://reqres.in/api/login", {
-        email: email,
+
+    var axios = require("axios");
+    var data = JSON.stringify({
+      username: username,
+      password: password,
+    });
+
+    var config = {
+      method: "post",
+      url: "localhost:8080/login",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: {
+        username: username,
         password: password,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        console.log("logged in! ");
       })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        setResult(JSON.stringify(res.data));
+      .catch(function (error) {
+        console.log(error);
       });
-    //axios.get('https://reqres.in/api/users').then(result => console.log(result))
   }
   return (
     <div className="loginform">
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
-          <Form.Group as={Col} controlId="formFirstName">
-            <Form.Label>First Name</Form.Label>
+          <Form.Group as={Col} controlId="formBasicUsername">
+            <Form.Label>Username</Form.Label>
             <Form.Control
               type="text"
-              placeholder="First Name"
+              placeholder="Enter username"
               required={true}
-              value={FirstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="Field"
-            />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Last Name"
-              required={true}
-              value={LastName}
-              onChange={(e) => setLastName(e.target.value)}
-              className="Field"
-            />
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3">
-          <Form.Group as={Col} controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              required={true}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="Field"
             />
           </Form.Group>
@@ -84,6 +71,14 @@ function Login() {
           </Form.Group>
         </Row>
 
+        <Button
+          variant="secondary"
+          type="button"
+          className="Btnstyle"
+          onClick={useHistory().goBack}
+        >
+          Back
+        </Button>
         <Button variant="primary" type="submit" className="Btnstyle">
           Login
         </Button>
