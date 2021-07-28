@@ -3,6 +3,9 @@ import "./Carousel.css";
 
 import { Carousel } from "react-bootstrap";
 import vaccine from "../images/vaccine.jpeg";
+import vaccine2 from "../images/vaccine2.png";
+import vaccine3 from "../images/vaccine3.png";
+
 function slide() {
   return (
     <div className="slide">
@@ -20,7 +23,7 @@ function slide() {
         <Carousel.Item>
           <img
             // className="w-100"
-            src={vaccine}
+            src={vaccine2}
             height="600px"
             width="424px"
             alt="second slide"
@@ -30,7 +33,7 @@ function slide() {
         <Carousel.Item>
           <img
             // className="w-100"
-            src={vaccine}
+            src={vaccine3}
             height="600px"
             width="424px"
             alt="third slide"
