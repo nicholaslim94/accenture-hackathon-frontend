@@ -27,7 +27,7 @@ function MainNavbar() {
               <Nav.Link href="./rewards">Rewards</Nav.Link>
               <Nav.Link href="./volunteer">Volunteer</Nav.Link>
             </Nav>
-            <Nav>
+            <Nav hidden={false}>
               <Nav.Link href="./register">Register</Nav.Link>
               <Nav.Link href="./login">Login</Nav.Link>
             </Nav>

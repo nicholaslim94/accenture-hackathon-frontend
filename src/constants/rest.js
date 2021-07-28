@@ -1,0 +1,10 @@
+export const BASE_URL = "http://206.189.92.33:8080"
+export const EMPLOYEE = BASE_URL + "/emp"
+export const EMPLOYEES = BASE_URL + "/emps"
+export const ADD_EMPLOYEE = BASE_URL + "/emp/add"
+export const UPDATE_EMPLOYEE = BASE_URL + "/emp/update"
+export const DELETE_EMPLOYEE = BASE_URL + "/emp/delete"
+
+export const AUTHENTICATE = BASE_URL + "/authenticate"
+export const AUTHENTICATE_LOGIN = BASE_URL + "/authenticate/login"
+export const AUTHENTICATE_REGISTER = BASE_URL + "/authenticate/register"
