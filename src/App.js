@@ -7,7 +7,8 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import WhyVaccinate from "./components/whyVaccinatePage/WhyVaccinate";
 import Volunteer from "./components/volunteer/Volunteer";
-import Operator from "./operatorComponents/operatorPage/Operator";
+import Operator from "./operatorComponents/page/Operator";
+import OperatorDashBoard from "./operatorComponents/page/OperatorDashBoard";
 
 import "./App.css";
 
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route exact path="/operator">
             <Operator />
+          </Route>
+          <Route exact path="/operator/dashboard">
+            <OperatorDashBoard />
           </Route>
           <Route exact path="/whyVaccinate">
             <WhyVaccinate />
