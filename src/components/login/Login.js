@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import axios from "axios";
+import {  useState } from "react";
+
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./Login.css";
@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [result, setResult] = useState("");
+ 
   // const authContext = useContext(AuthContext);
   let history = useHistory();
 
@@ -30,10 +30,7 @@ function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      data: {
-        username: username,
-        password: password,
-      },
+      data: data
     };
 
     axios(config)

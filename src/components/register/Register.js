@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Row } from "react-bootstrap";
@@ -11,7 +10,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [Result, setResult] = useState("");
+
   const [username, setUsername] = useState("");
   
   let history = useHistory();
@@ -26,7 +25,7 @@ function Register() {
 
 
     var axios = require('axios');
-    var data = JSON.stringify({"username":"username","password":"password","firstName":"firstName","lastName":"lastName","email":"email"});
+    var data = JSON.stringify({username:username,password:password, firstName:FirstName,lastName:LastName, email:email});
     
     var config = {
       method: 'post',
