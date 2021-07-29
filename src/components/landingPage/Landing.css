@@ -5,3 +5,8 @@
 h1 {
   font-style: oblique;
 }
+
+.intro {
+  font-family: "Noto Sans JP", sans-serif;
+  color: lightblue;
+}

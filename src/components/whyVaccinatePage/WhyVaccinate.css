@@ -1,5 +1,44 @@
 .whyVaccinate-content {
   margin: 100px auto;
-  background-color: lightgray;
+  background-color: lightskyblue;
+  padding:50px 50px 70px 50px;
+  font-family: 'Noto Sans JP', sans-serif;
+  color:mediumpurple;
+  margin-bottom:10px;
+}
+
+.carousel.slide{
+
+  margin:10px;
+}
+.box1{
+
+  width:300px;
+  height:500px;
+  background-color: lightsteelblue;
+  margin:20px;
+
+
+}
+
+
+.box2{
+
+  width:300px;
+  height:500px;
+  background-color:lightpink;
+  margin:20px;
+  
+  
+}
+
+
+.box3{
+
+  width:300px;
+  height:500px;
+  background-color: lightyellow;
+  margin:20px;
+  
   
 }

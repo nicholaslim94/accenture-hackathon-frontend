@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Row } from "react-bootstrap";
@@ -11,9 +10,10 @@ function Register() {
   const [password, setPassword] = useState("");
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [Result, setResult] = useState("");
+
   const [username, setUsername] = useState("");
-  
+
+  let history = useHistory();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,23 +23,32 @@ function Register() {
     console.log(FirstName);
     console.log(LastName);
 
+    var axios = require("axios");
+    var data = JSON.stringify({
+      username: username,
+      password: password,
+      firstName: FirstName,
+      lastName: LastName,
+      email: email,
+    });
 
+    var config = {
+      method: "post",
+      url: "http://localhost:8080/register",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-    //console.log(JSON.stringify(requestbody));
-    axios
-      .post("http://localhost:8080/register", {
-        username: username,
-        password: password,
-        FirstName:FirstName,
-        LastName: LastName
-
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        history.push("/");
       })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        setResult(JSON.stringify(res.data));
+      .catch(function (error) {
+        console.log(error);
       });
-   
   }
   return (
     <div class="Container registerform">
@@ -97,8 +106,7 @@ function Register() {
         </Row>
 
         <Row className="mb-3">
-
-        <Form.Group as={Col} controlId="formBasicEmail">
+          <Form.Group as={Col} controlId="formBasicEmail">
             <Form.Label>User Name</Form.Label>
             <Form.Control
               type="text"
@@ -108,9 +116,8 @@ function Register() {
               onChange={(e) => setUsername(e.target.value)}
               className="Field"
             />
-        </Form.Group>
+          </Form.Group>
         </Row>
-
 
         <Button
           variant="secondary"
@@ -119,8 +126,7 @@ function Register() {
           onClick={useHistory().goBack}
         >
           Back
-
-          </Button>
+        </Button>
         <Button variant="primary" type="submit" className="Btnstyle">
           Register
         </Button>

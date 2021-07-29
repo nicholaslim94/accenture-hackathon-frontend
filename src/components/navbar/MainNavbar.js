@@ -1,16 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../images/logo.png";
 import Nav from "react-bootstrap/Nav";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
+
 import profileImg from "../images/profileIcon.png";
 import { Button } from "react-bootstrap";
 
