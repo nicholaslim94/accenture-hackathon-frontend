@@ -10,7 +10,7 @@ function Landing() {
     <div>
       <MainNavbar />
       <Container className="content">
-        <h1> Vaccinelah </h1>
+        <h1> Vaccineate Lah </h1>
         <Carousel />
       </Container>
       <Introduction/>

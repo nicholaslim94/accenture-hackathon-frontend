@@ -1,4 +1,28 @@
 .volunteer-content {
   margin: 100px auto;
-  background-color: lightgray;
+  
+}
+
+
+.volunteerme-content {
+  margin: 100px auto;
+  background-color: lightpink;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+   .App-logo {
+    animation: App-logo-spin infinite 7s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
