@@ -7,14 +7,10 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import WhyVaccinate from "./components/whyVaccinatePage/WhyVaccinate";
 import Volunteer from "./components/volunteer/Volunteer";
-<<<<<<< HEAD
 import Operator from "./operatorComponents/page/Operator";
 import OperatorDashBoard from "./operatorComponents/page/OperatorDashBoard";
-=======
-import Operator from "./operatorComponents/operatorPage/Operator";
 import Profile from "./components/profile/Profile";
 import ClaimedRewards from "./components/claimedRewards/ClaimedRewards";
->>>>>>> 072cd88c737598228a16625bc61c1f706188d109
 
 import "./App.css";
 import Volunteerme from "./components/volunteer/Volunteerme";
