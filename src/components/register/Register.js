@@ -12,7 +12,7 @@ function Register() {
   const [LastName, setLastName] = useState("");
 
   const [username, setUsername] = useState("");
-  
+
   let history = useHistory();
 
   function handleSubmit(event) {
@@ -23,29 +23,32 @@ function Register() {
     console.log(FirstName);
     console.log(LastName);
 
-
-    var axios = require('axios');
-    var data = JSON.stringify({username:username,password:password, firstName:FirstName,lastName:LastName, email:email});
-    
-    var config = {
-      method: 'post',
-      url: 'http://localhost:8080/register',
-      headers: { 
-        'Content-Type': 'application/json', 
-       
-      },
-      data : data
-    };
-    
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      history.push("/");
-    })
-    .catch(function (error) {
-      console.log(error);
+    var axios = require("axios");
+    var data = JSON.stringify({
+      username: username,
+      password: password,
+      firstName: FirstName,
+      lastName: LastName,
+      email: email,
     });
-    
+
+    var config = {
+      method: "post",
+      url: "http://localhost:8080/register",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        history.push("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   return (
     <div class="Container registerform">
@@ -103,8 +106,7 @@ function Register() {
         </Row>
 
         <Row className="mb-3">
-
-        <Form.Group as={Col} controlId="formBasicEmail">
+          <Form.Group as={Col} controlId="formBasicEmail">
             <Form.Label>User Name</Form.Label>
             <Form.Control
               type="text"
@@ -114,9 +116,8 @@ function Register() {
               onChange={(e) => setUsername(e.target.value)}
               className="Field"
             />
-        </Form.Group>
+          </Form.Group>
         </Row>
-
 
         <Button
           variant="secondary"
@@ -125,8 +126,7 @@ function Register() {
           onClick={useHistory().goBack}
         >
           Back
-
-          </Button>
+        </Button>
         <Button variant="primary" type="submit" className="Btnstyle">
           Register
         </Button>
