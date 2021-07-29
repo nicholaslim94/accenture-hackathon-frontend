@@ -12,6 +12,10 @@ function Rewards() {
       var axios = require("axios");
       var updatedToken = "Bearer " + localStorage.getItem("token");
       console.log(updatedToken);
+<<<<<<< HEAD
+=======
+      // console.log(rewardsArray);
+>>>>>>> 65d5db4356a3b6751db948dd42654a752bab8ed9
 
       var config = {
         method: "get",
@@ -23,8 +27,12 @@ function Rewards() {
 
       axios(config)
         .then(function (response) {
+          if(typeof response.data.rewardObject === "array") {
+      
           console.log(JSON.stringify(response.data.rewardObject));
           setRewardsArray(response.data.rewardObject);
+          }
+         
         })
         .catch(function (error) {
           console.log(error);
