@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import WhyVaccinate from "./components/whyVaccinatePage/WhyVaccinate";
 import Volunteer from "./components/volunteer/Volunteer";
 import Operator from "./operatorComponents/operatorPage/Operator";
+import Profile from "./components/profile/Profile";
 
 import "./App.css";
 
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/volunteer">
             <Volunteer />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
           </Route>
           <Route exact path="/register">
             <Register />
