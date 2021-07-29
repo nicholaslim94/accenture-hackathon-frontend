@@ -12,6 +12,7 @@ import Profile from "./components/profile/Profile";
 import ClaimedRewards from "./components/claimedRewards/ClaimedRewards";
 
 import "./App.css";
+import Volunteerme from "./components/volunteer/Volunteerme";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route exact path="/myClaimedRewards">
             <ClaimedRewards />
+          </Route>
+          <Route exact path="/volunteerMe">
+            <Volunteerme />
           </Route>
         </Switch>
       </Router>

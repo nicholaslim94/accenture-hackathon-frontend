@@ -13,7 +13,7 @@ function Landing() {
         <h1> Vaccineate Lah </h1>
         <Carousel />
       </Container>
-      <Introduction/>
+      <Introduction />
     </div>
   );
 }
