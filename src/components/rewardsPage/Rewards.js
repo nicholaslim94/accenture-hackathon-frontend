@@ -12,7 +12,6 @@ function Rewards() {
       var axios = require("axios");
       var updatedToken = "Bearer " + localStorage.getItem("token");
       console.log(updatedToken);
-      console.log(rewardsArray);
 
       var config = {
         method: "get",
@@ -41,7 +40,7 @@ function Rewards() {
         </Container>
       );
     } else {
-      if (rewardsArray.length == 0) {
+      if (rewardsArray.length === 0) {
         return (
           <Container>
             <p>Sorry, there are no rewards available</p>

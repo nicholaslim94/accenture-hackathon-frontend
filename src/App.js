@@ -9,6 +9,7 @@ import WhyVaccinate from "./components/whyVaccinatePage/WhyVaccinate";
 import Volunteer from "./components/volunteer/Volunteer";
 import Operator from "./operatorComponents/operatorPage/Operator";
 import Profile from "./components/profile/Profile";
+import ClaimedRewards from "./components/claimedRewards/ClaimedRewards";
 
 import "./App.css";
 
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/myClaimedRewards">
+            <ClaimedRewards />
           </Route>
         </Switch>
       </Router>
