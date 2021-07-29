@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { ACCOUNT_DETAILS, UPDATE_DETAILS } from "../../constants/rest";
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ function Profile() {
 
     var config = {
       method: "get",
-      url: "http://localhost:8080/account/get/details",
+      url: ACCOUNT_DETAILS,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -72,7 +73,7 @@ function Profile() {
 
     var config = {
       method: "post",
-      url: "http://localhost:8080/account/update/details",
+      url: UPDATE_DETAILS,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",

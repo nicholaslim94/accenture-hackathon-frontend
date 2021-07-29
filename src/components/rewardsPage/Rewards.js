@@ -3,6 +3,7 @@ import MainNavbar from "../navbar/MainNavbar";
 import Container from "react-bootstrap/Container";
 import Reward from "../reward/Reward";
 import { useEffect, useState } from "react";
+import { GET_REWARDS } from "../../constants/rest";
 
 function Rewards() {
   const [rewardsArray, setRewardsArray] = useState([]);
@@ -15,7 +16,7 @@ function Rewards() {
 
       var config = {
         method: "get",
-        url: "http://localhost:8080/reward/get/0/10",
+        url: GET_REWARDS,
         headers: {
           Authorization: updatedToken,
         },

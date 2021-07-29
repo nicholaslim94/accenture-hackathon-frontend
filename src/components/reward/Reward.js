@@ -3,6 +3,7 @@ import "./Reward.css";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import rewardImg from "../images/reward.jpeg";
+import { ACCOUNT_ADD_REWARDS } from "../../constants/rest";
 
 function Reward(props) {
   const [claimed, setClaimed] = useState(false);
@@ -25,7 +26,7 @@ function Reward(props) {
 
     var config = {
       method: "post",
-      url: "http://localhost:8080/account/add/rewards/" + props.info.id,
+      url: ACCOUNT_ADD_REWARDS + props.info.id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

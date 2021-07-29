@@ -5,6 +5,7 @@ import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import "./Register.css";
 import { useHistory } from "react-router-dom";
+import { REGISTER } from "../../constants/rest";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +35,7 @@ function Register() {
 
     var config = {
       method: "post",
-      url: "http://localhost:8080/register",
+      url: REGISTER,
       headers: {
         "Content-Type": "application/json",
       },

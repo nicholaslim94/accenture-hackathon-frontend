@@ -9,7 +9,6 @@ import profileImg from "../images/profileIcon.png";
 import { Button } from "react-bootstrap";
 
 function MainNavbar() {
-  // const authContext = useContext(AuthContext);
   let history = useHistory();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -21,20 +20,12 @@ function MainNavbar() {
     }
   }, []);
 
-  // function isAuthenticated() {
-  //   if (localStorage.getItem("token") != null) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   function handleLogout(e) {
     e.preventDefault();
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    // authContext.authenticated = false;
+
     history.push("/");
     window.location.reload();
   }

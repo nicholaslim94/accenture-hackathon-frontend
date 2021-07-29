@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import MainNavbar from "../navbar/MainNavbar";
 import { useEffect, useState } from "react";
 import Reward from "../reward/Reward";
-
+import { ACCOUNT_REWARDS } from "../../constants/rest";
 function ClaimedRewards() {
   const [myRewards, setMyRewards] = useState([]);
 
@@ -12,7 +12,7 @@ function ClaimedRewards() {
 
     var config = {
       method: "get",
-      url: "http://localhost:8080/account/get/rewards",
+      url: ACCOUNT_REWARDS,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

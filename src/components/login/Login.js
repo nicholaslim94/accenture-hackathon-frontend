@@ -6,13 +6,14 @@ import "./Login.css";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-// import { AuthContext } from "../../context/AuthContext";
+import { LOGIN } from "../../constants/rest";
+
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // const authContext = useContext(AuthContext);
+
   let history = useHistory();
 
   function handleSubmit(event) {
@@ -26,7 +27,7 @@ function Login() {
 
     var config = {
       method: "post",
-      url: "http://localhost:8080/login",
+      url: LOGIN,
       headers: {
         "Content-Type": "application/json",
       },
