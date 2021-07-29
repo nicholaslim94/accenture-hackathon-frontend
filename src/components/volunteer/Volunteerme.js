@@ -1,7 +1,7 @@
 import "./Volunteer.css";
 import MainNavbar from "../navbar/MainNavbar";
 import Container from "react-bootstrap/Container";
-import thumbsup from "../images/thumbsup.png";
+
 import star from "../images/star.png";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";

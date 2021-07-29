@@ -6,9 +6,7 @@ import { Container } from "react-bootstrap";
 function Introduction() {
   return (
     <Container>
-      <div className="intro">
-        <h1 style={{ "font-size": "60px" }}> Welcome to Vaccinatelah</h1>
-      </div>
+    
 
       <div className="intro2">
         <h1> ENGLISH</h1>

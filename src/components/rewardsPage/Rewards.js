@@ -23,7 +23,7 @@ function Rewards() {
 
       axios(config)
         .then(function (response) {
-          if (typeof response.data.rewardObject === "array") {
+          if (Array.isArray(response.data.rewardObject)) {
             console.log(JSON.stringify(response.data.rewardObject));
             setRewardsArray(response.data.rewardObject);
           }
