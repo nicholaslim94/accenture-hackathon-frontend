@@ -41,9 +41,17 @@ function Rewards() {
         </Container>
       );
     } else {
-      return rewardsArray.map((reward, idx) => (
-        <Reward key={idx} info={reward} />
-      ));
+      if (rewardsArray.length == 0) {
+        return (
+          <Container>
+            <p>Sorry, there are no rewards available</p>
+          </Container>
+        );
+      } else {
+        return rewardsArray.map((reward, idx) => (
+          <Reward key={idx} info={reward} />
+        ));
+      }
     }
   }
 
