@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { Button, Container, Pagination, Table } from "react-bootstrap"
 import { OPERATOR_ORG_DELETE, OPERATOR_ORG_GET, OPERATOR_ORG_MODIFY } from '../constant/operatorRestUrl';
 import AddOrgModal from '../modals/AddOrgModal';
-import ManageRewardModal from '../modals/manageRewardModal';
+import ManageRewardModal from '../modals/ManageRewardModal';
 import ModifyOrgModal from '../modals/ModifyOrgModal';
 
 import "./ManageOrganizations.css"
 
 function ManageOrganizations() {
     const ORG_PAGE_SIZE = 5
-    const tableHeader = ["ID", "Organization Name", "Description", "Address", "website", "Actions"]
+    const tableHeader = ["ID", "Organization Name", "Description", "Address", "website", "Rewards","Actions"]
 
     const [orgPageNum, setOrgPageNum] = useState(1)
     const [orgMaxPageNum, setMaxOrgPageNum] = useState(1)
@@ -49,20 +49,27 @@ function ManageOrganizations() {
     }
 
     function onManageRewardClick(id) {
-        if(typeof data === "string"){
+        if(typeof id === "string"){
             setManageRewardId(id)
             setShowManageRewardOrgModal(true)
         }
+    }
+
+    function onDeleteClick(id) {
+        axios
+            .delete(OPERATOR_ORG_DELETE+`/${id}`)
+            .then((res) => {
+                window.location.reload()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     function onModifyChange(event) {
         let obj = Object.assign({}, modifyOrgForm)    
         obj[event.target.name] = event.target.value
         setModifyOrgForm(obj)
-    }
-
-    function onManageRewardClick(event) {
-
     }
 
     function fetchOrg() {
@@ -93,18 +100,6 @@ function ManageOrganizations() {
             })
     }
 
-    function onDeleteClick(id) {
-        let obj = Object.assign({}, modifyOrgForm)
-        axios
-            .delete(OPERATOR_ORG_DELETE+`/${id}`)
-            .then((res) => {
-
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
     function handlePageChange(event) {
         setOrgPageNum(event.target.text)
     }
@@ -124,8 +119,8 @@ function ManageOrganizations() {
             variant="success" 
             className="operator-add-org-button" 
             onClick={() => setShowAddOrgModal(true)}
-            >New Organization</Button>
-            <Table striped bordered hover>
+            >Add Organization</Button>
+            <Table striped bordered hover responsive className="operator-table">
                 <thead>
                     <tr>
                         {tableHeader.map((headerElement, headerIndex) => (
@@ -138,13 +133,13 @@ function ManageOrganizations() {
                         <tr key={dataIndex}>
                             <th>{dataElement.id}</th>
                             <th>{dataElement.name}</th>
-                            <th>{dataElement.description}</th>
+                            <th className="description-th">{dataElement.description}</th>
                             <th>{dataElement.address}</th>
                             <th>{dataElement.website}</th>
-                            <th>
-                                <Button variant="info" className="operator-action-org-button" onClick={() => onManageRewardClick(dataElement)}>Manage Rewards</Button>
+                            <th className="manage-reward-th">
+                                <Button variant="info" className="operator-action-org-button" onClick={() => onManageRewardClick(dataElement.id)}>Manage Rewards</Button>
                             </th>
-                            <th>
+                            <th className="action-th">
                                 <Button variant="warning" className="operator-action-org-button" onClick={() => onModifyClick(dataElement)}>Modify</Button>
                                 <Button variant="danger" className="operator-action-org-button" onClick={() => onDeleteClick(dataElement.id)}>Delete</Button>
                             </th>
@@ -154,7 +149,7 @@ function ManageOrganizations() {
             </Table>
             <AddOrgModal show={showAddOrgModal} close={() => setShowAddOrgModal(false)}/>
             <ModifyOrgModal show={showModifyOrgModal} close={() => setShowModifyOrgModal(false)} data={modifyOrgForm} onChange={onModifyChange} onModify={modifyOrg}/>
-            <ManageRewardModal show={showManageRewardOrgModal} close={() => setShowManageRewardOrgModal(false)}/>
+            <ManageRewardModal show={showManageRewardOrgModal} close={() => setShowManageRewardOrgModal(false)} orgId={manageRewardId}/>
             
             <Pagination>{pageItem}</Pagination>
         </Container>

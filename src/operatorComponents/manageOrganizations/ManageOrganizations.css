@@ -8,3 +8,20 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+/* .operator-table {
+    white-space: nowrap;
+} */
+
+.description-th {
+    min-width: 400px;
+    overflow-wrap: anywhere;
+}
+
+.manage-reward-th {
+    min-width: 200px;
+}
+
+.action-th {
+    min-width: 200px;
+}

@@ -12,7 +12,7 @@ import "./Operator.css"
 
 function Operator() {
     let history = useHistory()
-    const [tabKey, setTabKey] = useState("loginKey")
+    const [tabKey] = useState("loginKey")
 
     const [loginFrom, setLoginForm] = useState({})
     const [registerFrom, setRegisterForm] = useState({})
