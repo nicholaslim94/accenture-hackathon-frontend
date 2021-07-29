@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Reward.css";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -8,6 +8,15 @@ function Reward(props) {
   const [claimed, setClaimed] = useState(false);
   const [claimText, setClaimText] = useState("Claim your reward");
   const [claimStyle, setClaimStyle] = useState("primary");
+  const [code] = useState(props.myRerwardId.split("-", 1));
+
+  useEffect(() => {
+    if (props.myRewardPg) {
+      setClaimed(props.claimed);
+      setClaimStyle("secondary");
+      setClaimText(code);
+    }
+  }, []);
 
   function handleClaimReward(e) {
     e.preventDefault();

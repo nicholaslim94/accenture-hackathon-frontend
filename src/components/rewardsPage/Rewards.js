@@ -50,7 +50,12 @@ function Rewards() {
         );
       } else {
         return rewardsArray.map((reward, idx) => (
-          <Reward key={idx} info={reward} />
+          <Reward
+            key={idx}
+            info={reward}
+            myRewardPg={false}
+            myRerwardId={rewardsArray[idx].id}
+          />
         ));
       }
     }
@@ -60,7 +65,7 @@ function Rewards() {
     <div>
       <MainNavbar />
       <Container className="rewards-content">
-        <h1>Rewards</h1>
+        <h1 className="rewards-header">Rewards</h1>
         {displayRewards()}
         {/* {rewardsArray.map((reward, idx) => (
           <Reward key={idx} info={reward} />

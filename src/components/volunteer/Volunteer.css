@@ -1,20 +1,19 @@
 .volunteer-content {
   margin: 100px auto;
+  padding: 20px;
   font-family: "Noto Sans JP", sans-serif;
-  
+  background-color: lightgray;
 }
-
 
 .volunteerme-content {
   margin: 100px auto;
+  padding: 20px;
   background-color: lightpink;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
-
-
 @media (prefers-reduced-motion: no-preference) {
-   .App-logo {
+  .App-logo {
     animation: App-logo-spin infinite 7s linear;
   }
 }

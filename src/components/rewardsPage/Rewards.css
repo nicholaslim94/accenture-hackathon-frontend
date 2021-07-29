@@ -1,5 +1,12 @@
 .rewards-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 100px auto;
   padding: 20px;
   background-color: lightgray;
+}
+
+.rewards-header {
+  width: 100%;
 }

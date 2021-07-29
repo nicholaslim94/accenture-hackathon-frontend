@@ -32,12 +32,18 @@ function ClaimedRewards() {
     if (myRewards.length === 0) {
       return (
         <Container>
-          <p>Sorry, there are no rewards available</p>
+          <p>Sorry, you have not claimed any rewards yet</p>
         </Container>
       );
     } else {
       return myRewards.map((myReward, idx) => (
-        <Reward key={idx} info={myReward} />
+        <Reward
+          key={idx}
+          info={myReward}
+          claimed={true}
+          myRewardPg={true}
+          myRerwardId={myReward.accountReward[idx].id}
+        />
       ));
     }
   }
@@ -46,7 +52,7 @@ function ClaimedRewards() {
     <div>
       <MainNavbar />
       <Container className="claimedRewards-content">
-        <h1> My Claimed Rewards </h1>
+        <h1 className="claimedRewards-header"> My Claimed Rewards </h1>
         {displayMyRewards()}
       </Container>
     </div>

@@ -6,8 +6,6 @@ import { Container } from "react-bootstrap";
 function Introduction() {
   return (
     <Container>
-    
-
       <div className="intro2">
         <h1> ENGLISH</h1>
         <h1 style={{ "font-size": "40px" }}>

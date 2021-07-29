@@ -10,14 +10,12 @@ function Landing() {
     <div>
       <MainNavbar />
       <Container className="content">
-        <div className = "intro">
-      <h1 style={{ "font-size": "60px" }}> Welcome to Vaccinatelah</h1>
-      </div>
+        <div className="intro">
+          <h1 style={{ "font-size": "60px" }}> Welcome to Vaccinatelah</h1>
+        </div>
         <Carousel />
         <Introduction />
       </Container>
-      
-     
     </div>
   );
 }
